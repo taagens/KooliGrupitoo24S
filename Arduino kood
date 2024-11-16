@@ -2,12 +2,14 @@
 #include <MFRC522.h>
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
+#include <Adafruit_NeoPixel.h>
 
 #define RST_PIN 5  
 #define SS_PIN 4   
 const char* ssid = "A";      // Mnu wifi nimi : jagatud moblaga - wifi nimeks A
 const char* password = "Ainar123";  // wifi parool
 const char* server = "vepa.haridustee.ee";  // veebilehe URL - kuhu info läheb
+Adafruit_NeoPixel pixels(10, D3, NEO_GRB + NEO_KHZ800); // teeme NeoPixel objekti
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);  
 WiFiClientSecure client;  
@@ -24,7 +26,9 @@ void setup() {
   SPI.begin();         // SPI ühenduse initsialiseerimine
   mfrc522.PCD_Init();  
   Serial.println("Ootan RFID kaarti...");
-  
+  pixels.begin();
+  pixels.clear();
+  tuled(50,  100);
   // WiFi ühendus
   WiFi.begin(ssid, password);
   Serial.print("Connecting to WiFi...");
@@ -90,6 +94,7 @@ void loop() {
 
       Serial.print("Kogutud punktid: ");
       Serial.println(points);
+      tuled(points, 100);
 
       // Saada punktid veebilehele
       sendPointsToServer(points);
@@ -100,6 +105,7 @@ void loop() {
       // Uuenda viimase RFID-kaardi lugemise aega
       lastReadTime = millis();
     }
+    Serial.println("Ei näe mitte midagi ...");
   }
 }
 
@@ -117,7 +123,7 @@ void sendPointsToServer(int points) {
     client.println(postData);
 
     Serial.println("Punktid saadetud veebilehele.");
-    client.stop();  // Sulge ühendus
+    client.stop();  // Sulge ühendus 
   } else {
     Serial.println("Ei saanud veebilehega ühendust.");
   }
@@ -144,4 +150,17 @@ void checkIfDatabaseCleared() {
   } else {
     Serial.println("Ei saanud ühendust, et kontrollida andmebaasi olekut.");
   }
+}
+
+void tuled (int punktid ,int MAXpunktid){
+ int LED_arv=map(punktid, 0,  MAXpunktid, 0, 9);
+  for (int i=0; i<LED_arv; i++){
+    pixels.setPixelColor(i, pixels.Color(0, 150,0));
+  }
+  
+  for(int i=LED_arv; i<=9; i++){
+    pixels.setPixelColor(i, pixels.Color(0, 0, 0));
+  }
+  pixels.show();
+
 }
