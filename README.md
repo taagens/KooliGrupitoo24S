@@ -2,6 +2,7 @@
 TLÜ Disaini- ja arenduslabor 2024S
 
 TOOTE ÜLEVAADE
+
 Meie toode vastab vajadusele pakkuda kaasahaaravaid klassihaldustööriistu, mis edendavad positiivset käitumist ja integreerivad interaktiivset tehnoloogiat. Traditsioonilised meetodid hea käitumise julgustamiseks jäävad tihti ilma reaalajas tagasiside ja mängustamise elementideta, mis aitaksid õpilastel püsida kaasatuna ja motiveerituna. Meie lahendus pakub lõbusat ja tehnoloogiapõhist viisi käitumise parandamiseks, tuginedes VEPA metoodikale.
 
 Toote tüüp
