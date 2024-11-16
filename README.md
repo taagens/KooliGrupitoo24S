@@ -18,6 +18,7 @@ Andmeanalüütika: Õpetajad saavad jälgida õpilaste edusamme ja analüüsida 
 Sihtkasutajad
 
 Peamine sihtrühm: Koolide õpetajad ja pedagoogid, kes rakendavad VEPA meetodil põhinevaid positiivse tagasiside tehnikaid.
+
 Teisene sihtrühm: Õpilased, kes saavad kasu käitumispõhistest motivatsioonisüsteemidest.
 Õpetajad vajavad seda toodet, et luua struktureeritud, kuid lõbus keskkond, kus õpilasi premeeritakse positiivse käitumise eest koheselt, suurendades saavutustunnet ja koostööd.
 Levitamise/rahastamise mudel
